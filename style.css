@@ -1,0 +1,160 @@
+body {
+    background-color: #f5efe0;
+    font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+	margin: 0px;
+}
+
+div#content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 610px;
+	padding: 5px;
+}
+
+div#title {
+    background-color: #ac0d0d;
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 7px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 12px;
+	height: 44px;
+	box-shadow: 3px 3px 2px 0px lightgrey;
+}
+
+div#subtitle {
+    background-color: grey;
+    color: white;
+    padding-top: 8px;
+    padding-bottom: 7px;
+	padding-left: 5px;
+	padding-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 12px;
+	min-height: 30px;
+	box-shadow: 3px 3px 2px 0px lightgrey;
+}
+
+div#livesearch {
+	margin-bottom: 15px;
+}
+
+div#footer{
+	background-color: white;
+	width: 100%;
+	border-radius: 12px;
+	box-shadow: 3px 3px 2px 0px lightgrey;
+}
+
+table#logo {
+	height: 50px;
+}
+
+td#builtby {
+	font-weight: bold;
+	color: #ac0d0d;
+	padding-top: 5px;
+}
+
+td#logo {
+    width: 120px;
+	padding: 0px;
+}
+
+img#logo {
+	width: 100%;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+table.result {
+	background-color: grey;
+	font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 12px;
+	color: white;
+	margin-top: 10px;
+	border-radius: 12px;
+	padding: 7px;
+	box-shadow: 3px 3px 2px 0px lightgrey;
+}
+
+td.school_name {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-right: 5px;
+}
+
+td.fsm_prop {
+	border-left: 1px solid white;
+	padding-left: 5px;
+}
+
+img#mag {
+	width: 45px;
+	padding-left: 10px;
+}
+
+table#search {
+	box-shadow: 5px 5px 2px 0px lightgrey;
+	border-radius: 12px;
+    border: 3px;
+    border-style: solid;
+    border-color: #ac0d0d;
+	background-color: white;
+	min-width: 600px;
+}
+
+input {
+	display: block;
+	grid-area: search;
+	-webkit-appearance: none;
+	appearance: none;
+	width: 100%;
+	background: none;
+	padding: 0px;
+	border: none;
+	font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 20px;
+}
+
+@media only screen and (max-width:1000px) {
+	div#content {
+		width: 510px;
+	}
+	table#search {
+		min-width: 500px;
+	}
+	div#title{
+		font-size: 18px;
+	}
+	input{
+		font-size: 18px;
+	}
+}
+
+@media only screen and (max-width:500px) {
+	div#content {
+		width: 360px;
+	}
+	table#search {
+		min-width: 350px;
+	}
+	div#title{
+		font-size: 16px;
+	}
+	input{
+		font-size: 16px;
+	}
+}

@@ -1,0 +1,57 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HE Insight - FSM Lookup</title>
+<link rel='stylesheet' href='style.css'>
+</head>
+<body>
+<div id='content'>
+    <center>
+        <div id='title'>Free School Meals eligibility</div>
+        <div id='subtitle'>Look up the proportion of FSM eligible pupils at English schools, 2022-23</div>
+        <table id="search"><tr>
+            <td id='mag'><img id='mag' src='https://heinsight.co.uk/wp-content/uploads/2023/10/mag.png'></td>
+            <td id='input'><input id='searchbox' size='30' type="text" placeholder='Search for a school...' onkeyup="callSearch(this.value)"></td>
+        </tr></table>
+        
+        <div id="livesearch"></div>
+        <div id='footer'>
+            <table id='logo'><tr>
+                <td id='builtby'>Built by </td>
+                <td id='logo'><a href='https://heinsight.co.uk'><img id='logo' src='https://heinsight.co.uk/wp-content/uploads/2021/02/cropped-HE-Insight-logo.png'></a></td>
+            </tr></table>
+        </div>
+        </center>
+</div>
+</body>
+</html>
+
+<script>
+    let ac = new AbortController();
+    function callSearch(search_string) {
+        ac.abort();
+        ac = new AbortController();
+        search(search_string, { signal: ac.signal });
+    }
+
+    async function search(search_string, { signal } = {}) {
+        try {
+            const fetch_results = await fetch("livesearch.php?q=" + search_string, { signal });
+            var results = await fetch_results.json({ signal })
+            html = ''
+            for (const result of results) {
+                if (result['fsm_prop'] == 'z') {
+                    fsm_prop_text = "Data unavailable"
+                } else {
+                    fsm_prop_text = result['fsm_prop'] + "% of pupils eligible"
+                }
+                html = html + "<table class='result'><tr><td class='school_name'>" + result['school_name'] + ", " + result['la_name'] + "</td><td class='fsm_prop'>" + fsm_prop_text + "</td></tr></table>"
+            }
+            const suggestion_table = document.getElementById("livesearch")
+            suggestion_table.innerHTML = html
+        } catch (e) {
+            if(e.name !== 'AbortError') throw e;
+        }
+        
+    };
+</script>
